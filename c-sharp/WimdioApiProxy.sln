@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WimdioApiProxy.v2", "WimdioApiProxy\WimdioApiProxy.v2.csproj", "{86B1EB46-0E41-4399-88EF-DDC953726465}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WimdioApiProxy.v2.Tests", "WimdioApiProxy.v2.Tests\WimdioApiProxy.v2.Tests.csproj", "{70B8EEC0-4B48-475B-A71B-9D92510CC036}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WimdioApiProxy.v2.SampleApp", "WimdioApiProxy.v2.SampleApp\WimdioApiProxy.v2.SampleApp.csproj", "{23B9DC8C-626C-4DE9-AF1A-B3A61D33BEBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{86B1EB46-0E41-4399-88EF-DDC953726465}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86B1EB46-0E41-4399-88EF-DDC953726465}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86B1EB46-0E41-4399-88EF-DDC953726465}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86B1EB46-0E41-4399-88EF-DDC953726465}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70B8EEC0-4B48-475B-A71B-9D92510CC036}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70B8EEC0-4B48-475B-A71B-9D92510CC036}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70B8EEC0-4B48-475B-A71B-9D92510CC036}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70B8EEC0-4B48-475B-A71B-9D92510CC036}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23B9DC8C-626C-4DE9-AF1A-B3A61D33BEBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B9DC8C-626C-4DE9-AF1A-B3A61D33BEBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B9DC8C-626C-4DE9-AF1A-B3A61D33BEBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B9DC8C-626C-4DE9-AF1A-B3A61D33BEBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

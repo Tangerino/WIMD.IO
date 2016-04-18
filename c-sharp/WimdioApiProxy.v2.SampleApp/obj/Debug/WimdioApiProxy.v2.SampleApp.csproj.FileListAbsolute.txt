@@ -1,0 +1,15 @@
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\bin\Debug\WimdioApiProxy.v2.SampleApp.exe.config
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\bin\Debug\WimdioApiProxy.v2.SampleApp.exe
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\bin\Debug\WimdioApiProxy.v2.SampleApp.pdb
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\bin\Debug\WimdioApiProxyV2.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\bin\Debug\log4net.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\bin\Debug\Newtonsoft.Json.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\bin\Debug\WimdioApiProxyV2.pdb
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\bin\Debug\log4net.xml
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\bin\Debug\Newtonsoft.Json.xml
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\obj\Debug\WimdioApiProxy.v2.SampleApp.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\obj\Debug\WimdioApiProxy.v2.SampleApp.Main.resources
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\obj\Debug\WimdioApiProxy.v2.SampleApp.Properties.Resources.resources
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\obj\Debug\WimdioApiProxy.v2.SampleApp.csproj.GenerateResource.Cache
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\obj\Debug\WimdioApiProxy.v2.SampleApp.exe
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.SampleApp\obj\Debug\WimdioApiProxy.v2.SampleApp.pdb

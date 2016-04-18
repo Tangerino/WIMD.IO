@@ -1,0 +1,54 @@
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\obj\Debug\WimdioApiProxy.v2.Tests.csprojResolveAssemblyReference.cache
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxy.v2.Tests.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxy.v2.Tests.pdb
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.Core.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxyV2.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\log4net.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxyV2.pdb
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.pdb
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.xml
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.Core.pdb
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.Core.xml
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\log4net.xml
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\obj\Debug\WimdioApiProxy.v2.Tests.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy.v2.Tests\obj\Debug\WimdioApiProxy.v2.Tests.pdb
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxy.v2.Tests.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxy.v2.Tests.pdb
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.Core.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxyV2.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\log4net.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\Newtonsoft.Json.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxyV2.pdb
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.pdb
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.xml
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.Core.pdb
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.Core.xml
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\log4net.xml
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\Newtonsoft.Json.xml
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\obj\Debug\WimdioApiProxy.v2.Tests.csprojResolveAssemblyReference.cache
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\obj\Debug\WimdioApiProxy.v2.Tests.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy.v2.Tests\obj\Debug\WimdioApiProxy.v2.Tests.pdb
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxy.v2.Tests.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxy.v2.Tests.pdb
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.Core.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxyV2.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\log4net.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\Newtonsoft.Json.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\WimdioApiProxyV2.pdb
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.pdb
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.xml
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.Core.pdb
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\FluentAssertions.Core.xml
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\log4net.xml
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\bin\Debug\Newtonsoft.Json.xml
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\obj\Debug\WimdioApiProxy.v2.Tests.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\obj\Debug\WimdioApiProxy.v2.Tests.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy.v2.Tests\obj\Debug\WimdioApiProxy.v2.Tests.pdb

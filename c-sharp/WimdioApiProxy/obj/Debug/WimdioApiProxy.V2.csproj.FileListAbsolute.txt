@@ -1,0 +1,31 @@
+D:\Projects\WimdioApiProxyV2\WimdioApiProxy\bin\Debug\WimdioApiProxyV2.dll
+D:\Projects\WimdioApiProxyV2\WimdioApiProxy\bin\Debug\WimdioApiProxyV2.pdb
+D:\Projects\WimdioApiProxyV2\WimdioApiProxy\obj\Debug\WimdioApiProxy.V2.csprojResolveAssemblyReference.cache
+D:\Projects\WimdioApiProxyV2\WimdioApiProxy\obj\Debug\WimdioApiProxyV2.dll
+D:\Projects\WimdioApiProxyV2\WimdioApiProxy\obj\Debug\WimdioApiProxyV2.pdb
+D:\Projects\WimdioApiProxy\WimdioApiProxy\bin\Debug\WimdioApiProxyV2.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy\bin\Debug\WimdioApiProxyV2.pdb
+D:\Projects\WimdioApiProxy\WimdioApiProxy\bin\Debug\log4net.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy\bin\Debug\log4net.xml
+D:\Projects\WimdioApiProxy\WimdioApiProxy\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\WimdioApiProxy\WimdioApiProxy\obj\Debug\WimdioApiProxyV2.dll
+D:\Projects\WimdioApiProxy\WimdioApiProxy\obj\Debug\WimdioApiProxyV2.pdb
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy\bin\Debug\WimdioApiProxyV2.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy\bin\Debug\WimdioApiProxyV2.pdb
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy\bin\Debug\log4net.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy\bin\Debug\Newtonsoft.Json.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy\bin\Debug\log4net.xml
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy\bin\Debug\Newtonsoft.Json.xml
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy\obj\Debug\WimdioApiProxy.v2.csprojResolveAssemblyReference.cache
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy\obj\Debug\WimdioApiProxyV2.dll
+D:\GitProjects\wrapper-c-sharp\WimdioApiProxy\obj\Debug\WimdioApiProxyV2.pdb
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy\bin\Debug\WimdioApiProxyV2.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy\bin\Debug\WimdioApiProxyV2.pdb
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy\bin\Debug\log4net.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy\bin\Debug\Newtonsoft.Json.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy\bin\Debug\log4net.xml
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy\bin\Debug\Newtonsoft.Json.xml
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy\obj\Debug\WimdioApiProxy.v2.csprojResolveAssemblyReference.cache
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy\obj\Debug\WimdioApiProxyV2.dll
+\\vmware-host\Shared Folders\Desktop\wrapper-c-sharp\WimdioApiProxy\obj\Debug\WimdioApiProxyV2.pdb
