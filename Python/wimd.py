@@ -18,6 +18,7 @@ Where Is My Data API Wrapper
 Please refer to https://wimd.io/api/ for more info.
 '''
 
+
 __version__ = '2.0.0'
 
 import requests
@@ -439,13 +440,16 @@ class WIMD():
     def readHistoricalData(self, sensorlistid, startdate, enddate, operation, timeinterval):
         ""
         slist = ""
-        for id in sensorlistid:
-            if slist <> "":
-                slist = slist + ","
-            slist = slist + id
+        if isinstance(sensorlistid, list):
+            for id in sensorlistid:
+                if slist <> "":
+                    slist = slist + ","
+                slist = slist + id
+        else:
+            slist = sensorlistid
         startdate = startdate.strftime('%Y-%m-%d %H:%M:%S')
         enddate   = enddate.strftime('%Y-%m-%d %H:%M:%S')
-        return self._get(self._apiNode('mdata', slist, startdate, enddate, str(operation), str(timeinterval), 'clean'))
+        return self._get(self._apiNode('data', slist, startdate, enddate, str(operation), str(timeinterval), 'clean'))
 
     def readNormalizedData(self, sensorid, startdate, enddate, operation, timeinterval, nfid):
         ""
