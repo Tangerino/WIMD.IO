@@ -1,0 +1,29 @@
+#######################################
+# Syntax Coloring Map For SevenSegment
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+WIMDClient	KEYWORD1
+WIMD		KEYWORD1
+WIMDSensor	KEYWORD1
+WIMDSensorValue	KEYWORD1
+WIMDFeed	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+createSensor	KEYWORD2
+enableDebug	KEYWORD2
+put	KEYWORD2
+updateSensor	KEYWORD2
+deleteSensor	KEYWORD2
+build	KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
