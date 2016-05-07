@@ -1,8 +1,8 @@
 /*
   WIMDFeed.cpp - A class used to form json body which is ready to be passed to WIMD 
   server while adding sensor data
-  Copyright (c) 2016 Sagar Devkota.  All right reserved.
-  Email:sagarda7@yahoo.com
+  Copyright (c) 2016 wimd.io.  All right reserved.
+  Author:sagarda7@yahoo.com
 */
 #include "WIMDFeed.h"
 

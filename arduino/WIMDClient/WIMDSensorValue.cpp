@@ -1,8 +1,8 @@
 /*
   Sensor.cpp - Sensor Value Class
   Represents sensor value 
-  Copyright (c) 2016 Sagar Devkota.  All right reserved.
-  Email:sagarda7@yahoo.com
+  Copyright (c) 2016 wimd.io.  All right reserved.
+  Author:sagarda7@yahoo.com
 */
 #include "WIMDSensorValue.h"
 

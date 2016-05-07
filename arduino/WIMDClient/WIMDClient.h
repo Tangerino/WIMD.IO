@@ -1,8 +1,8 @@
 #ifndef WIMDClient_h
 /*
   WIMDClient.h - Arduino WIMDClient Library
-  Copyright (c) 2016 Sagar Devkota.  All right reserved.
-  Email:sagarda7@yahoo.com
+  Copyright (c) 2016 wimd.io.  All right reserved.
+  Author:sagarda7@yahoo.com
 */
 #define WIMDClient_h
 

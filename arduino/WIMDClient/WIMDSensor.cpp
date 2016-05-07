@@ -1,8 +1,8 @@
 /*
   Sensor.cpp - Sensor Class, Arduino WIMDClient Library
   Used to form json body used during creating sensor to the server
-  Copyright (c) 2016 Sagar Devkota.  All right reserved.
-  Email:sagarda7@yahoo.com
+  Copyright (c) 2016 wimd.io.  All right reserved.
+  Author:sagarda7@yahoo.com
 */
 #include "WIMDSensor.h"
 

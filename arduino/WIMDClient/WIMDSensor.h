@@ -1,8 +1,8 @@
 #ifndef WIMDSensor_h
 /*
   WIMDSensor.h - Arduino WIMDClient Library
-  Copyright (c) 2013 Sagar Devkota.  All right reserved.
-  Email:sagarda7@yahoo.com
+  Copyright (c) 2016 wimd.io.  All right reserved.
+  Author:sagarda7@yahoo.com
 */
 #include <Stream.h>
 #include <Printable.h>
