@@ -26,12 +26,12 @@ class WIMDClient
 		int getDataStream(char* buf, WIMDFeed& aFeed);
 		int put(WIMDFeed& aFeed);
 		void enableDebug(bool debug) {_debug=debug;}
-		char* getCurrentDateTime();
+		const char* getCurrentDateTime();
 
 	protected:
 		EthernetClient& _client;
 		const char* _devKey;
-		bool waitForResponse(const char* resp);
+		bool waitForResponse();
 		bool _debug;
 		void _filter(char* buff);
 		

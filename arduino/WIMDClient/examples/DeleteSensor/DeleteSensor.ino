@@ -32,7 +32,7 @@ void setup()
   //now deleteSensor(remoteId)
   //simalarly wimdclient.updateSensor("56789") updates sensor
   
-  if(wimdclient.deleteSensor("5555")){
+  if(wimdclient.deleteSensor("56789")){
     Serial.println("Sensor Deleted");
   }
   else

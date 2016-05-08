@@ -29,7 +29,7 @@ WIMDClient::WIMDClient(EthernetClient& client, const char* devKey): _client(clie
 int WIMDClient::createSensor(WIMDSensor& sensor){
 	char buff[120];
 	int len=sensor.printToBuff(buff);
-	char resp[]="remoteid";
+	//char resp[]="remoteid";
 	
 	if (_client.connect(BASE_URI, 80)) {
 		if(_debug)
@@ -49,7 +49,7 @@ int WIMDClient::createSensor(WIMDSensor& sensor){
 		_client.println(buff);
 		_client.println();
 	
-		return waitForResponse(resp);
+		return waitForResponse();
 	  }
 	  else {
 		return false;
@@ -68,7 +68,7 @@ int WIMDClient::createSensor(WIMDSensor& sensor){
 */
 int WIMDClient::deleteSensor(const char* remoteId){
 	char buff[200];
-	char resp[]="OK";
+	//char resp[]="OK";
 	int sum=0;
 	
 	if (_client.connect(BASE_URI, 80)) {
@@ -89,7 +89,7 @@ int WIMDClient::deleteSensor(const char* remoteId){
 		_client.println();
 		
 		
-		return waitForResponse(resp);
+		return waitForResponse();
 	  }
 	  else {
 		return false;
@@ -107,7 +107,7 @@ int WIMDClient::deleteSensor(const char* remoteId){
 int WIMDClient::updateSensor(WIMDSensor& sensor){
 	char buff[120];
 	int len=sensor.printToBuff(buff);
-	char resp[]="200";
+	//char resp[]="200";
 
 	
 	if (_client.connect(BASE_URI, 80)) {
@@ -130,7 +130,7 @@ int WIMDClient::updateSensor(WIMDSensor& sensor){
 		_client.println();
 		
 		
-		return waitForResponse(resp);
+		return waitForResponse();
 	  }
 	  else {
 		return false;
@@ -177,11 +177,11 @@ int WIMDClient::put(WIMDFeed& aFeed)
     char request[BUFF_LEN];
     char* data = request+BUFF_LEN/2;
     memset(request,'\0',sizeof(request));
-    char resp[]="OK";
+    //char resp[]="OK";
     
 
     int dataLen = getDataStream(data,aFeed);
-    Serial.println(data);
+    //Serial.println(data);
        
     if (_client.connect(BASE_URI, 80)) {
     	if(_debug)
@@ -200,7 +200,7 @@ int WIMDClient::put(WIMDFeed& aFeed)
 		_client.println();
 		_client.println(data);
 		
-		return waitForResponse(resp);
+		return waitForResponse();
 	}
 	else
 	{
@@ -220,12 +220,14 @@ int WIMDClient::put(WIMDFeed& aFeed)
 *  @since 1.0
 *  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
-bool WIMDClient::waitForResponse(const char* resp)
+bool WIMDClient::waitForResponse()
 {
 	unsigned long timerStart,timerEnd;
     timerStart = millis();
     timerEnd = DEFAULT_WAIT_RESP_TIMEOUT + timerStart;
-    int sum=0;
+    uint8_t sum=0;
+    const char resp[]="HTTP/1.1 20"; //expect 2x response first
+
     while(1) {
 
     	if (_client.available()) {
@@ -235,8 +237,11 @@ bool WIMDClient::waitForResponse(const char* resp)
 
 			sum = (c==resp[sum]) ? sum+1 : 0;
             if(sum == strlen(resp)){
-            	_client.stop();
-            	return true;
+            	c = _client.read();
+            	if(c=='1' || c=='0'){  // if rexponse is 200 or 201
+            		_client.stop();
+            		return true;
+            	}
             } 
 		}
 		
@@ -257,7 +262,7 @@ bool WIMDClient::waitForResponse(const char* resp)
 *  @since 1.0
 *  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
-char* WIMDClient::getCurrentDateTime(){
+const char* WIMDClient::getCurrentDateTime(){
 	
 	if (_client.connect("www.timeapi.org", 80)) {
 		if(_debug)
