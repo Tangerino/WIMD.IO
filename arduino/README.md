@@ -76,7 +76,7 @@ It deletes the sensor , takes remoteId as parameter
 ```
 
 
-### Update Sensor WIMDClient::updateSensor(const char* remoteId)
+### Update Sensor WIMDClient::updateSensor(WIMDSensor sensor)
 
 It updates the sensor , takes remoteId as parameter
 
@@ -84,7 +84,12 @@ It updates the sensor , takes remoteId as parameter
   void loop(){
   	  ...
 
-  	  if(wimdclient.updateSensor("5555")){
+  	  WIMDSensor sensor;
+	  // now create sensor Object remoteId, Name, UnitName, Unit  to be updated
+	  sensor.build("23567685","Current","Ampere","amp");
+	  
+	  //now pass sensor object to wimd server
+	  if(wimdclient.updateSensor(sensor)){
 	    Serial.println("Sensor Updated");
 	  }
 	  else
@@ -119,8 +124,8 @@ It sends time series values to the server
   	  ...
 
   	  WIMDSensorValue sensorValues[] = {
-	    WIMDSensorValue("2016-02-16 14:30:50",144.5),
-	    WIMDSensorValue("2016-02-17 23:55:50",96.5)
+	    WIMDSensorValue("2016-02-16 14:30:50","144.5"),
+	    WIMDSensorValue("2016-02-17 23:55:50","96.5")
 	  };
 
 	  WIMDFeed feed("235676", sensorValues, 2); // remoteid, sensorvalues, number of values
@@ -187,8 +192,8 @@ It gets the current date/time in utc from server
 	  //create collection of sensor values
 	  //WIMDSensorValue(datetime,value)
 	  WIMDSensorValue sensorValues[] = {
-	    WIMDSensorValue("2016-02-16 14:30:50",144.5),
-	    WIMDSensorValue("2016-02-17 23:55:50",96.5)
+	    WIMDSensorValue("2016-02-16 14:30:50","144.5"),
+	    WIMDSensorValue("2016-02-17 23:55:50","96.5")
 	  };
 
 	  WIMDFeed feed("235676", sensorValues, 2); // remoteid, sensorvalues, number of values
