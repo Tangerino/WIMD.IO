@@ -41,7 +41,7 @@ Creating sensor needs WIMDSensor object that is passed to instance WIMDClient
 		  ...
 		  WIMDSensor sensor;
 		  // now create sensor Object remoteId, Name, UnitName, Unit
-		  sensor.build("23567685","Current","Ampere","amp");
+		  sensor.build("56789","Current","Ampere","amp");
 		  
 		  //now pass sensor object to wimd server
 		  if(wimdclient.createSensor(sensor)){
@@ -63,7 +63,7 @@ It deletes the sensor , takes remoteId as parameter
   void loop(){
   	  ...
 
-  	  if(wimdclient.deleteSensor("5555")){
+  	  if(wimdclient.deleteSensor("56789")){
 	    Serial.println("Sensor Deleted");
 	  }
 	  else
@@ -86,7 +86,7 @@ It updates the sensor , takes remoteId as parameter
 
   	  WIMDSensor sensor;
 	  // now create sensor Object remoteId, Name, UnitName, Unit  to be updated
-	  sensor.build("23567685","Current","Ampere","amp");
+	  sensor.build("56789","Current","Ampere","amp");
 	  
 	  //now pass sensor object to wimd server
 	  if(wimdclient.updateSensor(sensor)){
@@ -128,7 +128,7 @@ It sends time series values to the server
 	    WIMDSensorValue("2016-02-17 23:55:50","96.5")
 	  };
 
-	  WIMDFeed feed("235676", sensorValues, 2); // remoteid, sensorvalues, number of values
+	  WIMDFeed feed("56789", sensorValues, 2); // remoteid, sensorvalues, number of values
 	 
 	  if(wimdclient.put(feed)){
 	    Serial.println("Data Added");
@@ -196,7 +196,7 @@ It gets the current date/time in utc from server
 	    WIMDSensorValue("2016-02-17 23:55:50","96.5")
 	  };
 
-	  WIMDFeed feed("235676", sensorValues, 2); // remoteid, sensorvalues, number of values
+	  WIMDFeed feed("56789", sensorValues, 2); // remoteid, sensorvalues, number of values
 	  
 	  wimdclient.enableDebug(true);
 	  //now deleteSensor(remoteId)

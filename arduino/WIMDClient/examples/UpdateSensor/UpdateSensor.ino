@@ -30,7 +30,7 @@ void setup()
   Serial.println("Creating Sensor");
   WIMDSensor sensor;
   // now create sensor Object remoteId, Name, UnitName, Unit
-  sensor.build("23567685","Current","Ampere","amp");
+  sensor.build("56789","Current","Ampere","amp");
   
   //now pass sensor object to wimd server
   if(wimdclient.updateSensor(sensor)){

@@ -30,7 +30,7 @@ void setup()
   Serial.println("Deleting Sensor");
   
   //now deleteSensor(remoteId)
-  //simalarly wimdclient.updateSensor("5555") updates sensor
+  //simalarly wimdclient.updateSensor("56789") updates sensor
   
   if(wimdclient.deleteSensor("5555")){
     Serial.println("Sensor Deleted");

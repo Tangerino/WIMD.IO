@@ -32,7 +32,7 @@ void setup()
     WIMDSensorValue("2016-02-17 23:55:50","96.5")
   };
 
-  WIMDFeed feed("235676", sensorValues, 2); // remoteid, sensorvalues, number of values
+  WIMDFeed feed("56789", sensorValues, 2); // remoteid, sensorvalues, number of values
   
   wimdclient.enableDebug(true);
   //now deleteSensor(remoteId)
