@@ -146,7 +146,7 @@ int WIMDClient::updateSensor(WIMDSensor& sensor){
 */
 int WIMDClient::getDataStream(char* buf, WIMDFeed& aFeed)
 {
-    strcpy(buf+strlen(buf),"{");
+    strcpy(buf+strlen(buf),"[{");
     strcpy(buf+strlen(buf),"\"id\":\"");
     strcpy(buf+strlen(buf),aFeed.id());
     strcpy(buf+strlen(buf),"\",");
@@ -159,7 +159,7 @@ int WIMDClient::getDataStream(char* buf, WIMDFeed& aFeed)
           strcpy(buf+strlen(buf),",");
         }    
     }
-    strcpy(buf+strlen(buf),"]}");
+    strcpy(buf+strlen(buf),"]}]");
     return (strlen(buf));
 }
 
