@@ -12,6 +12,7 @@
 #include <Ethernet.h>
 #include "WIMDSensor.h"
 #include "WIMDFeed.h"
+#define BASE_URI "wimd.io"
   
 #define BUFF_LEN    400
 
@@ -20,7 +21,7 @@ class WIMDClient
 	public:
 		WIMDClient(EthernetClient& client, const char* devKey);
 		int createSensor(WIMDSensor& sensor);
-		int updateSensor(const char* remoteId);
+		int updateSensor(WIMDSensor& sensor);
 		int deleteSensor(const char* remoteId);
 		int getDataStream(char* buf, WIMDFeed& aFeed);
 		int put(WIMDFeed& aFeed);

@@ -11,13 +11,13 @@
 class WIMDSensorValue: public Printable
 {
 	public:
-		WIMDSensorValue(const char* date,const float value);
+		WIMDSensorValue(const char* date,const char* value);
 		int printToBuff(char* buff);
 		virtual size_t printTo(Print&) const;
 		
 	protected:
 		const char* _date;
-		float _value;
+		const char* _value;
 				
 };
 

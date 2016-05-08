@@ -25,23 +25,20 @@ void setup()
   enableEthernet();
   Ethernet.begin(mac, ip);
  
-  //create collection of sensor values
-  //WIMDSensorValue(datetime,value)
-  WIMDSensorValue sensorValues[] = {
-    WIMDSensorValue("2016-02-16 14:30:50","144.5"),
-    WIMDSensorValue("2016-02-17 23:55:50","96.5")
-  };
-
-  WIMDFeed feed("235676", sensorValues, 2); // remoteid, sensorvalues, number of values
-  
+  //show response from WIMD Server 
   wimdclient.enableDebug(true);
-  //now deleteSensor(remoteId)
-  if(wimdclient.put(feed)){
-    Serial.println("Data Added");
+  Serial.println("Creating Sensor");
+  WIMDSensor sensor;
+  // now create sensor Object remoteId, Name, UnitName, Unit
+  sensor.build("23567685","Current","Ampere","amp");
+  
+  //now pass sensor object to wimd server
+  if(wimdclient.updateSensor(sensor)){
+    Serial.println("Sensor Updated");
   }
   else
   {
-    Serial.println("Data Not Added");
+    Serial.println("Sensor not updated");
   }
 }
 

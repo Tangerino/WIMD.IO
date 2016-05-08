@@ -14,6 +14,7 @@ class WIMDSensor: public Printable
 		void build(const char* remoteId,const char* name,const char* unitName,const char* unit);
 		virtual size_t printTo(Print&) const;
 		int printToBuff(char* buff);
+		const char* getId() {return _remoteId;}
 		
 	protected:
 		const char* _remoteId;

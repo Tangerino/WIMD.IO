@@ -27,17 +27,18 @@ WIMDClient::WIMDClient(EthernetClient& client, const char* devKey): _client(clie
 *  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 int WIMDClient::createSensor(WIMDSensor& sensor){
-	char buff[200];
+	char buff[120];
 	int len=sensor.printToBuff(buff);
 	char resp[]="remoteid";
 	
-	if (_client.connect("wimd.io", 80)) {
+	if (_client.connect(BASE_URI, 80)) {
 		if(_debug)
 			Serial.println(F("connected"));
 		
 		// Make a HTTP request:
 		_client.println("POST /v2/sensor HTTP/1.1");
-		_client.println("Host: wimd.io");
+		_client.print("Host: ");
+		_client.println(BASE_URI);
 		_client.println("Connection: keep-alive");
 		_client.println("Content-type: application/json");
 		_client.print("Content-length: ");
@@ -70,7 +71,7 @@ int WIMDClient::deleteSensor(const char* remoteId){
 	char resp[]="OK";
 	int sum=0;
 	
-	if (_client.connect("wimd.io", 80)) {
+	if (_client.connect(BASE_URI, 80)) {
 		if(_debug)
 			Serial.println(F("connected"));
 	
@@ -78,7 +79,8 @@ int WIMDClient::deleteSensor(const char* remoteId){
 		_client.print("DELETE /v2/sensor/");
 		_client.print(remoteId);
 		_client.println(" HTTP/1.1");
-		_client.println("Host: wimd.io");
+		_client.print("Host: ");
+		_client.println(BASE_URI);
 		_client.println("Connection: keep-alive");
 		_client.print("Content-length: ");
 		_client.println(0);
@@ -102,24 +104,29 @@ int WIMDClient::deleteSensor(const char* remoteId){
 *  @since 1.0
 *  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
-int WIMDClient::updateSensor(const char* remoteId){
-	char buff[200];
-	char resp[]="OK";
+int WIMDClient::updateSensor(WIMDSensor& sensor){
+	char buff[120];
+	int len=sensor.printToBuff(buff);
+	char resp[]="200";
+
 	
-	if (_client.connect("wimd.io", 80)) {
+	if (_client.connect(BASE_URI, 80)) {
 		if(_debug)
 			Serial.println(F("connected"));
 	
 		// Make a HTTP request:
 		_client.print("PUT /v2/sensor/");
-		_client.print(remoteId);
+		_client.print(sensor.getId());
 		_client.println(" HTTP/1.1");
-		_client.println("Host: wimd.io");
+		_client.print("Host: ");
+		_client.println(BASE_URI);
 		_client.println("Connection: keep-alive");
 		_client.print("Content-length: ");
-		_client.println(0);
+		_client.println(len);
 		_client.print("devkey: ");
 		_client.println(_devKey);
+		_client.println();
+		_client.println(buff);
 		_client.println();
 		
 		
@@ -174,15 +181,17 @@ int WIMDClient::put(WIMDFeed& aFeed)
     
 
     int dataLen = getDataStream(data,aFeed);
+    Serial.println(data);
        
-    if (_client.connect("wimd.io", 80)) {
+    if (_client.connect(BASE_URI, 80)) {
     	if(_debug)
 			Serial.println(F("connected"));
 	
 		// Make a HTTP request:
 		_client.print("POST /v2/sensor/data");
 		_client.println(" HTTP/1.1");
-		_client.println("Host: wimd.io");
+		_client.print("Host: ");
+		_client.println(BASE_URI);
 		_client.println("Connection: keep-alive");
 		_client.print("Content-length: ");
 		_client.println(dataLen);

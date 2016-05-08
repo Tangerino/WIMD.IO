@@ -14,7 +14,7 @@
 *  @since 1.0
 *  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
-WIMDSensorValue::WIMDSensorValue(const char* date,float value):_date(date),_value(value) 
+WIMDSensorValue::WIMDSensorValue(const char* date,const char* value):_date(date),_value(value) 
 {
   	
 }
@@ -50,7 +50,7 @@ int WIMDSensorValue::printToBuff(char* buff)
    sprintf(buff+0,"%s","[\"");
    sprintf(buff+strlen(buff),"%s",_date);
    sprintf(buff+strlen(buff),"%s","\",");
-   sprintf(buff+strlen(buff),"%f",_value);
+   sprintf(buff+strlen(buff),"%s",_value);
    sprintf(buff+strlen(buff),"%s","]");
    //memset(buff,'\0',sizeof(buff));
    return strlen(buff);
