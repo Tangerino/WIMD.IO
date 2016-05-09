@@ -6,6 +6,10 @@ WIMDClient library which is used to connect wimd.io(Where is my data) server usi
 Clone (or download and unzip) the repository to `/libraries`
 which can be found in your arduino installation. currently this library supports remote sensor APIs
 
+# Supported Boards
+
+WIMD Client currently supports Ethernet Shield and All arduino boards (UNO, MINI, MEGA etc).
+
 # Usage
 
 ### Include

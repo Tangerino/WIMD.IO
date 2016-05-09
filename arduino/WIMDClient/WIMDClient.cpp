@@ -240,6 +240,9 @@ bool WIMDClient::waitForResponse()
             	c = _client.read();
             	if(c=='1' || c=='0'){  // if rexponse is 200 or 201
             		_client.stop();
+            		if(_debug)
+						Serial.print(c);
+					
             		return true;
             	}
             } 
