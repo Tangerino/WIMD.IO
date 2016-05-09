@@ -127,14 +127,24 @@ It sends time series values to the server
   void loop(){
   	  ...
 
-  	  WIMDSensorValue sensorValues[] = {
-	    WIMDSensorValue("2016-02-16 14:30:50","144.5"),
-	    WIMDSensorValue("2016-02-17 23:55:50","96.5")
+  	  WIMDSensorValue series1[]={
+           WIMDSensorValue("2016-02-16 14:30:50","144.5"),
+           WIMDSensorValue("2016-02-17 23:55:50","96.5")
+      };
+
+	  WIMDSensorValue series2[]={
+	           WIMDSensorValue("2016-02-15 09:30:50","100.8"),
+	           WIMDSensorValue("2016-02-16 11:55:50","29.4")
+	      };
+	      
+	  WIMDFeed feeds[]={
+	      WIMDFeed("56789",series1 , 2),
+	      WIMDFeed("223344", series2, 2)
 	  };
 
-	  WIMDFeed feed("56789", sensorValues, 2); // remoteid, sensorvalues, number of values
-	 
-	  if(wimdclient.put(feed)){
+	  WIMDRequest request(feeds,2);
+		 
+	  if(wimdclient.put(request)){
 	    Serial.println("Data Added");
 	  }
 	  else

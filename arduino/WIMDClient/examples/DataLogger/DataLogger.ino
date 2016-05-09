@@ -18,15 +18,22 @@ void addRecord(){
   value=random(10,100);
   char val[4];
   
-  WIMDSensorValue sensorValues[] = {
-    WIMDSensorValue("",itoa(value,val,10))
+  WIMDSensorValue series[]={
+         WIMDSensorValue("",itoa(value,val,10)) //date,value
   };
 
-  WIMDFeed feed("56789", sensorValues, 1); // remoteid, sensorvalues, number of values
+ 
+      
+  WIMDFeed feeds[]={
+      WIMDFeed("56789",series , 1) //remoteid, series, count
+  };
+
+  WIMDRequest request(feeds,1); // feeds, count
+
   
   //wimdclient.enableDebug(false);
   //now deleteSensor(remoteId)
-  if(wimdclient.put(feed)){
+  if(wimdclient.put(request)){
     Serial.println(F("Data Added"));
   }
   else
@@ -46,7 +53,7 @@ void setup()
   digitalWrite(SS_ETHERNET, HIGH); // Ethernet not active
     
   enableEthernet();
-  Ethernet.begin(mac, ip);
+  Ethernet.begin(mac);
   wimdclient.enableDebug(true);
  
 }

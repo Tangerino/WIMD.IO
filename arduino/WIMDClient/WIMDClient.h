@@ -12,6 +12,7 @@
 #include <Ethernet.h>
 #include "WIMDSensor.h"
 #include "WIMDFeed.h"
+#include "WIMDRequest.h"
 #define BASE_URI "wimd.io"
   
 #define BUFF_LEN    400
@@ -23,8 +24,8 @@ class WIMDClient
 		int createSensor(WIMDSensor& sensor);
 		int updateSensor(WIMDSensor& sensor);
 		int deleteSensor(const char* remoteId);
-		int getDataStream(char* buf, WIMDFeed& aFeed);
-		int put(WIMDFeed& aFeed);
+		int getDataStream(char* buf, WIMDRequest& aRequest);
+		int put(WIMDRequest& aRequest);
 		void enableDebug(bool debug) {_debug=debug;}
 		const char* getCurrentDateTime();
 

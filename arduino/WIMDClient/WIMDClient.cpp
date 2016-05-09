@@ -144,34 +144,43 @@ int WIMDClient::updateSensor(WIMDSensor& sensor){
 *  @since 1.0
 *  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
-int WIMDClient::getDataStream(char* buf, WIMDFeed& aFeed)
+int WIMDClient::getDataStream(char* buf, WIMDRequest& aRequest)
 {
-    strcpy(buf+strlen(buf),"[{");
-    strcpy(buf+strlen(buf),"\"id\":\"");
-    strcpy(buf+strlen(buf),aFeed.id());
-    strcpy(buf+strlen(buf),"\",");
-    strcpy(buf+strlen(buf),"\"values\" : [");
-    for(int i = 0; i < aFeed._sensorsCount;i++){
-        aFeed._sensorValues[i].printToBuff(buf+strlen(buf));
-        if (i == aFeed._sensorsCount-1){
+    strcpy(buf+strlen(buf),"[");
+    for(int x=0; x<aRequest._feedsCount; x++){
+	    strcpy(buf+strlen(buf),"{\"id\":\"");
+	    strcpy(buf+strlen(buf),aRequest._feeds[x].id());
+	    strcpy(buf+strlen(buf),"\",");
+	    strcpy(buf+strlen(buf),"\"values\" : [");
+	    for(int i = 0; i < aRequest._feeds[x]._sensorsCount;i++){
+	        aRequest._feeds[x]._sensorValues[i].printToBuff(buf+strlen(buf));
+	        if (i == aRequest._feeds[x]._sensorsCount-1){
+	            //to do something?
+	        }else{
+	          strcpy(buf+strlen(buf),",");
+	        }    
+	    }
+	    strcpy(buf+strlen(buf),"]");
+	    strcpy(buf+strlen(buf),"}");
+	    if (x == aRequest._feedsCount-1){
             //to do something?
         }else{
           strcpy(buf+strlen(buf),",");
-        }    
-    }
-    strcpy(buf+strlen(buf),"]}]");
+        }   
+	}
+    strcpy(buf+strlen(buf),"]");
     return (strlen(buf));
 }
 
 
 /*
 *  Uploads data to WIMD server
-*  @param WIMDFeed
+*  @param WIMDRequest
 *  @return boolean, true on success
 *  @since 1.0
 *  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
-int WIMDClient::put(WIMDFeed& aFeed)
+int WIMDClient::put(WIMDRequest& aRequest)
 {
     
     char request[BUFF_LEN];
@@ -180,7 +189,7 @@ int WIMDClient::put(WIMDFeed& aFeed)
     //char resp[]="OK";
     
 
-    int dataLen = getDataStream(data,aFeed);
+    int dataLen = getDataStream(data,aRequest);
     //Serial.println(data);
        
     if (_client.connect(BASE_URI, 80)) {
@@ -242,7 +251,7 @@ bool WIMDClient::waitForResponse()
             		_client.stop();
             		if(_debug)
 						Serial.print(c);
-					
+
             		return true;
             	}
             } 
