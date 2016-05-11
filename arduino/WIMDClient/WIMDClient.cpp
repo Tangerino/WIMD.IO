@@ -58,6 +58,45 @@ int WIMDClient::createSensor(WIMDSensor& sensor){
 	  
 }
 
+/*
+*  Creates sensor to WIMD Server, communicates via EthernetClient
+*  @param WIMDSensor, buffer 
+*  @return true if success, false if failed or error
+*  @since 1.0
+*  Author Sagar Devkota<sagarda7@yahoo.com> 
+*/
+int WIMDClient::createSensor(WIMDSensor& sensor, char* buff){
+	char buffer[120];
+	int len=sensor.printToBuff(buffer);
+	//char resp[]="remoteid";
+	
+	if (_client.connect(BASE_URI, 80)) {
+		if(_debug)
+			Serial.println(F("connected"));
+		
+		// Make a HTTP request:
+		_client.println("POST /v2/sensor HTTP/1.1");
+		_client.print("Host: ");
+		_client.println(BASE_URI);
+		_client.println("Connection: keep-alive");
+		_client.println("Content-type: application/json");
+		_client.print("Content-length: ");
+		_client.println(len);
+		_client.print("devkey: ");
+		_client.println(_devKey);
+		_client.println();
+		_client.println(buffer);
+		_client.println();
+	
+		return waitForResponseWithBuff(buff);
+	  }
+	  else {
+		return false;
+	  }
+	  
+	  
+}
+
 
 /*
 *  Deletes sensor in WIMD server
@@ -222,6 +261,56 @@ int WIMDClient::put(WIMDRequest& aRequest)
 }
 
 
+
+/*
+*  Uploads data to WIMD server and gets message body
+*  @param WIMDRequest
+*  @return boolean, true on success
+*  @since 1.0
+*  Author Sagar Devkota<sagarda7@yahoo.com> 
+*/
+int WIMDClient::put(WIMDRequest& aRequest, char* buff)
+{
+    
+    char request[BUFF_LEN];
+    char* data = request+BUFF_LEN/2;
+    memset(request,'\0',sizeof(request));
+    //char resp[]="OK";
+    
+
+    int dataLen = getDataStream(data,aRequest);
+    //Serial.println(data);
+       
+    if (_client.connect(BASE_URI, 80)) {
+    	if(_debug)
+			Serial.println(F("connected"));
+	
+		// Make a HTTP request:
+		_client.print("POST /v2/sensor/data");
+		_client.println(" HTTP/1.1");
+		_client.print("Host: ");
+		_client.println(BASE_URI);
+		_client.println("Connection: keep-alive");
+		_client.print("Content-length: ");
+		_client.println(dataLen);
+		_client.print("devkey: ");
+		_client.println(_devKey);
+		_client.println();
+		_client.println(data);
+		
+		return waitForResponseWithBuff(buff);
+	}
+	else
+	{
+		return false;
+
+	}
+		
+		
+		
+}
+
+
 /*
 *  Waits for response to come till given timeout
 *  @param const char*, value to be searched in response to think valid response
@@ -266,6 +355,78 @@ bool WIMDClient::waitForResponse()
     _client.stop();
     return false;
 }
+
+
+/*
+*  Waits for response to come till given timeout
+*  @param const char*, value to be searched in response to think valid response
+*  @return boolean, true on success
+*  @since 1.0
+*  Author Sagar Devkota<sagarda7@yahoo.com> 
+*/
+bool WIMDClient::waitForResponseWithBuff(char* buff)
+{
+	unsigned long timerStart,timerEnd;
+    timerStart = millis();
+    timerEnd = DEFAULT_WAIT_RESP_TIMEOUT + timerStart;
+    uint8_t sum=0;
+    const char resp[]="HTTP/1.1 20"; //expect 2x response first
+    bool success=false, read=false;
+    const char seek[]="\r\n\r\n";
+    int i=0;
+
+    while(1) {
+
+    	if (_client.available()) {
+			char c = _client.read();
+			if(_debug)
+				Serial.print(c);
+
+			if(success==false){
+				sum = (c==resp[sum]) ? sum+1 : 0;
+	            if(sum == strlen(resp)){
+	            	c = _client.read();
+	            	if(c=='1' || c=='0'){  // if rexponse is 200 or 201
+	            		sum=0;
+	            		success=true;
+	            	}
+	            }
+	        }
+
+            if(success==true) {
+            	 sum = (c==seek[sum]) ? sum+1 : 0;
+            	 if(sum==strlen(seek)){
+            	 	read=true;
+            	 	continue;
+            	 }
+
+            	 if(read){
+            	 	buff[i]=c;
+            	 	i++;
+
+            	 	if(c=='}'){
+
+            	 		_client.stop();
+            	 		buff[i]='\0';
+            	 		return true;
+            	 	}
+            	 }
+
+
+            }
+		}
+		
+		
+        
+        if(millis() > timerEnd) {
+        	_client.stop();
+            return false;
+        }
+    }
+    _client.stop();
+    return false;
+}
+
 
 /*
 *  Get current date time from time api

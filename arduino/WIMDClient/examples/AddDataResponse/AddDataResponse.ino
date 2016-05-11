@@ -24,22 +24,40 @@ void setup()
   
   enableEthernet();
   Ethernet.begin(mac, ip);
+  char buff[200];
  
-  //show response from WIMD Server 
-  wimdclient.enableDebug(true);
-  Serial.println("Creating Sensor");
-  WIMDSensor sensor;
-  // now create sensor Object remoteId, Name, UnitName, Unit
-  sensor.build("56789","Current","Ampere","amp");
-  
-  //now pass sensor object to wimd server
-  if(wimdclient.createSensor(sensor)){
-    Serial.println("Sensor Created");
+  WIMDSensorValue series1[]={
+           WIMDSensorValue("2016-02-16 14:30:50","144.5"),
+           WIMDSensorValue("2016-02-17 23:55:50","96.5")
+      };
+
+  WIMDSensorValue series2[]={
+           WIMDSensorValue("2016-02-15 09:30:50","100.8"),
+           WIMDSensorValue("2016-02-16 11:55:50","29.4")
+      };
+      
+  WIMDFeed feeds[]={
+      WIMDFeed("56789",series1 , 2),
+      WIMDFeed("223344", series2, 2)
+  };
+
+  WIMDRequest request(feeds,2);
+
+
+
+  //wimdclient.enableDebug(true);
+  //now deleteSensor(remoteId)
+  if(wimdclient.put(request,buff)){
+    Serial.println("Data Added");
+    Serial.println(buff); //response
+    
   }
   else
   {
-    Serial.println("Sensor not created");
+    Serial.println("Data Not Added");
   }
+
+  
 }
 
 void loop()
@@ -53,8 +71,6 @@ void enableEthernet() {
     digitalWrite(SS_ETHERNET, LOW);  // Ethernet ACTIVE
     // code that sends to the ethernet slave device over SPI
     // using SPI.transfer() etc.
-    digitalWrite(SS_SD_CARD, HIGH); // Ethernet not active
+    digitalWrite(SS_ETHERNET, HIGH); // Ethernet not active
     // ...
 }
-
-

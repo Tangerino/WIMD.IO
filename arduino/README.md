@@ -59,6 +59,34 @@ Creating sensor needs WIMDSensor object that is passed to instance WIMDClient
 	}
 ```
 
+### Create sensor WIMDClient::createSensor(WIMDSensor sensor, char* buffer)
+
+Creating sensor needs WIMDSensor object that is passed to instance WIMDClient 
+
+
+```c++
+	...
+	void setup(){
+		  ...
+		  WIMDSensor sensor;
+		  // now create sensor Object remoteId, Name, UnitName, Unit
+		  sensor.build("56789","Current","Ampere","amp");
+		  
+		  //now pass sensor object to wimd server
+		  char response[200];
+		  if(wimdclient.createSensor(sensor,response)){
+		    Serial.println("Sensor Created");
+		    Serial.println("Response:");
+		    Serial.println(response);
+		  }
+		  else
+		  {
+		    Serial.println("Sensor not created");
+		  }
+		  ...
+	}
+```
+
 ### Delete Sensor WIMDClient::deleteSensor(const char* remoteId)
 
 It deletes the sensor , takes remoteId as parameter
@@ -146,6 +174,45 @@ It sends time series values to the server
 		 
 	  if(wimdclient.put(request)){
 	    Serial.println("Data Added");
+	  }
+	  else
+	  {
+	    Serial.println("Data Not Added");
+	  }
+
+	  ...
+  }
+```
+
+### Add data to the server WIMDClient::put(WIMDRequest request, char* buff)
+
+It sends time series values to the server and saves response message body to buffer
+```c++
+  void loop(){
+  	  ...
+
+  	  WIMDSensorValue series1[]={
+           WIMDSensorValue("2016-02-16 14:30:50","144.5"),
+           WIMDSensorValue("2016-02-17 23:55:50","96.5")
+      };
+
+	  WIMDSensorValue series2[]={
+	           WIMDSensorValue("2016-02-15 09:30:50","100.8"),
+	           WIMDSensorValue("2016-02-16 11:55:50","29.4")
+	      };
+	      
+	  WIMDFeed feeds[]={
+	      WIMDFeed("56789",series1 , 2),
+	      WIMDFeed("223344", series2, 2)
+	  };
+
+	  WIMDRequest request(feeds,2);
+	  
+	  char response[200];
+	  if(wimdclient.put(request,response)){
+	    Serial.println("Data Added");
+	    Serial.println("Response is: ");
+	    Serial.println(response);
 	  }
 	  else
 	  {

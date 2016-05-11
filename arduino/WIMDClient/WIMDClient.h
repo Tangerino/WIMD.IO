@@ -22,10 +22,12 @@ class WIMDClient
 	public:
 		WIMDClient(EthernetClient& client, const char* devKey);
 		int createSensor(WIMDSensor& sensor);
+		int createSensor(WIMDSensor& sensor, char* buff);
 		int updateSensor(WIMDSensor& sensor);
 		int deleteSensor(const char* remoteId);
 		int getDataStream(char* buf, WIMDRequest& aRequest);
 		int put(WIMDRequest& aRequest);
+		int put(WIMDRequest& aRequest, char* buff);
 		void enableDebug(bool debug) {_debug=debug;}
 		const char* getCurrentDateTime();
 
@@ -33,6 +35,7 @@ class WIMDClient
 		EthernetClient& _client;
 		const char* _devKey;
 		bool waitForResponse();
+		bool waitForResponseWithBuff(char* buff);
 		bool _debug;
 		void _filter(char* buff);
 		
