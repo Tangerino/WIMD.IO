@@ -1,7 +1,6 @@
 #include <WIMD.h>
 #include <SPI.h>
 #include <Ethernet.h>
-#include<SD.h>
 
 #define SS_SD_CARD   4
 #define SS_ETHERNET 10
@@ -15,21 +14,39 @@ WIMDClient wimdclient(client,"f2f69c43-11d3-11e6-8e61-04017fd5d401");
 void addRecord(){
   int value;
   enableEthernet();
-  value=random(10,100);
-  char val[4];
   
-  WIMDSensorValue series[]={
-         WIMDSensorValue("",itoa(value,val,10)) //date,value
-  };
+  char val1[4],val2[4],val3[4],val4[4];
+   
+  Serial.println(F("Creating Sensor"));
+  WIMDSensor sensor;
+
+  sensor.build("88888","Current","Ampere","amp");
+  if(wimdclient.createSensor(sensor))
+    Serial.println(F("Sensor created"));
+
+  sensor.build("99999","Voltage","Volt","v");
+  if(wimdclient.createSensor(sensor))
+    Serial.println(F("Another sensor created"));
 
  
-      
-  WIMDFeed feeds[]={
-      WIMDFeed("56789",series , 1) //remoteid, series, count
+  WIMDSensorValue series1[]={
+       WIMDSensorValue("",itoa(random(10,100),val1,10)), //date,value
+       WIMDSensorValue("",itoa(random(10,100),val2,10)), //date,value
+       WIMDSensorValue("",itoa(random(10,100),val2,10)), //date,value
   };
 
-  WIMDRequest request(feeds,1); // feeds, count
+  WIMDSensorValue series2[]={
+         WIMDSensorValue("",itoa(random(10,100),val3,10)), //date,value
+         WIMDSensorValue("",itoa(random(10,100),val4,10)), //date,value
+  };
 
+  WIMDFeed feeds[]={
+    WIMDFeed("88888",series1 , 3), //remoteid, series, count of series
+    WIMDFeed("99999",series2 , 2)
+  };
+
+     
+  WIMDRequest request(feeds,2); // feeds, numberof sensors
   
   //wimdclient.enableDebug(false);
   //now deleteSensor(remoteId)
@@ -73,11 +90,3 @@ void enableEthernet() {
     digitalWrite(SS_SD_CARD, HIGH); // SD not active
     // ...
 }
-
-
-
-
-
-
-
-

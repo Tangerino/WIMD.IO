@@ -53,7 +53,7 @@ void enableEthernet() {
     digitalWrite(SS_ETHERNET, LOW);  // Ethernet ACTIVE
     // code that sends to the ethernet slave device over SPI
     // using SPI.transfer() etc.
-    digitalWrite(SS_ETHERNET, HIGH); // Ethernet not active
+    digitalWrite(SS_SD_CARD, HIGH); // Ethernet not active
     // ...
 }
 
