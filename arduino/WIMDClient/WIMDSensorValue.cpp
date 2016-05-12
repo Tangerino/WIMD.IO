@@ -1,8 +1,30 @@
+  /*
+  * The MIT License (MIT)
+  * 
+  * Copyright (c) 2016 Carlos Tangerino
+  * 
+  * Permission is hereby granted, free of charge, to any person obtaining a copy
+  * of this software and associated documentation files (the "Software"), to deal
+  * in the Software without restriction, including without limitation the rights
+  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  * copies of the Software, and to permit persons to whom the Software is
+  * furnished to do so, subject to the following conditions:
+  * 
+  * The above copyright notice and this permission notice shall be included in all
+  * copies or substantial portions of the Software.
+  * 
+  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  * SOFTWARE.
+  */ 
+
 /*
   Sensor.cpp - Sensor Value Class
   Represents sensor value 
-  Copyright (c) 2016 wimd.io.  All right reserved.
-  Author:sagarda7@yahoo.com
 */
 #include "WIMDSensorValue.h"
 
@@ -12,7 +34,6 @@
 *  @param datetime, value 
 *  @return void
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 WIMDSensorValue::WIMDSensorValue(const char* date,const char* value):_date(date),_value(value) 
 {
@@ -24,7 +45,6 @@ WIMDSensorValue::WIMDSensorValue(const char* date,const char* value):_date(date)
 *  @param Print& 
 *  @return length of json
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 size_t WIMDSensorValue::printTo(Print& aPrint) const
 {
@@ -43,7 +63,6 @@ size_t WIMDSensorValue::printTo(Print& aPrint) const
 *  @param char* buff 
 *  @return integer, length of value json
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 int WIMDSensorValue::printToBuff(char* buff)
 {
@@ -52,7 +71,6 @@ int WIMDSensorValue::printToBuff(char* buff)
    sprintf(buff+strlen(buff),"%s","\",");
    sprintf(buff+strlen(buff),"%s",_value);
    sprintf(buff+strlen(buff),"%s","]");
-   //memset(buff,'\0',sizeof(buff));
    return strlen(buff);
 }
 

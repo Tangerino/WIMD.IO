@@ -1,8 +1,30 @@
+  /*
+  * The MIT License (MIT)
+  * 
+  * Copyright (c) 2016 Carlos Tangerino
+  * 
+  * Permission is hereby granted, free of charge, to any person obtaining a copy
+  * of this software and associated documentation files (the "Software"), to deal
+  * in the Software without restriction, including without limitation the rights
+  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  * copies of the Software, and to permit persons to whom the Software is
+  * furnished to do so, subject to the following conditions:
+  * 
+  * The above copyright notice and this permission notice shall be included in all
+  * copies or substantial portions of the Software.
+  * 
+  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  * SOFTWARE.
+  */ 
+
 /*
   Sensor.cpp - Sensor Class, Arduino WIMDClient Library
   Used to form json body used during creating sensor to the server
-  Copyright (c) 2016 wimd.io.  All right reserved.
-  Author:sagarda7@yahoo.com
 */
 #include "WIMDSensor.h"
 
@@ -12,7 +34,6 @@
 *  @param remoteId, name of sensor, unit name, unit of sensor 
 *  @return true if success, false if failed or error
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 void WIMDSensor::build(const char* remoteId,const char* name,const char* unitName,const char* unit){
 	_remoteId=remoteId;
@@ -27,7 +48,6 @@ void WIMDSensor::build(const char* remoteId,const char* name,const char* unitNam
 *  @param Print 
 *  @return integer, length of printable
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 size_t WIMDSensor::printTo(Print& aPrint) const
 {
@@ -43,17 +63,6 @@ size_t WIMDSensor::printTo(Print& aPrint) const
   len += aPrint.print(_unitName);
   len += aPrint.println("\",");
   len += aPrint.println("\"tseoi\":true,");
-  //commenting to save RAM
-  /*len += aPrint.println("\"rule\":{");
-  len += aPrint.println("\"logininterval\":900,");
-  len += aPrint.println("\"enabled\":1,");
-  len += aPrint.println("\"isincremental\":false,");
-  len += aPrint.println("\"hastimezone\":1,");
-  len += aPrint.println("\"tzname\":\"Europe/Peris\",");
-  len += aPrint.println("\"indextoabsolute\":false,");
-  len += aPrint.println("\"checkgap\":false,");
-  len += aPrint.println("},");
-  */
   len += aPrint.println("\"meta\":\"\",");
   len += aPrint.print("\"unit\":\"");
   len += aPrint.print(_unit);
@@ -70,7 +79,6 @@ size_t WIMDSensor::printTo(Print& aPrint) const
 *  @param const char* buf 
 *  @return integer, length of json body
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 int WIMDSensor::printToBuff(char* buff)
 {
@@ -91,7 +99,6 @@ int WIMDSensor::printToBuff(char* buff)
    sprintf(buff+strlen(buff),"%s","\",");
    sprintf(buff+strlen(buff),"%s","\"description\":\"\"");
    sprintf(buff+strlen(buff),"%s","}");
-   //memset(buff,'\0',sizeof(buff));
    return strlen(buff);
 }
 

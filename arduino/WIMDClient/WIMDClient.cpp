@@ -1,8 +1,30 @@
+	/*
+	* The MIT License (MIT)
+	* 
+	* Copyright (c) 2016 Carlos Tangerino
+	* 
+	* Permission is hereby granted, free of charge, to any person obtaining a copy
+	* of this software and associated documentation files (the "Software"), to deal
+	* in the Software without restriction, including without limitation the rights
+	* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+	* copies of the Software, and to permit persons to whom the Software is
+	* furnished to do so, subject to the following conditions:
+	* 
+	* The above copyright notice and this permission notice shall be included in all
+	* copies or substantial portions of the Software.
+	* 
+	* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	* SOFTWARE.
+	*/ 
+
 /*
   WIMDClient.c - Arduino WIMDClient Library 
   This class handles communication to WIMD server using ethernet client
-  Copyright (c) 2016 wimd.io.  All right reserved.
-  Author:sagarda7@yahoo.com
 */
 
 #include "Arduino.h"
@@ -13,7 +35,6 @@
 *  @param EthernetClient, devKey
 *  @return void
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 WIMDClient::WIMDClient(EthernetClient& client, const char* devKey): _client(client),_devKey(devKey){
 	Serial.begin(9600);
@@ -24,7 +45,6 @@ WIMDClient::WIMDClient(EthernetClient& client, const char* devKey): _client(clie
 *  @param WIMDSensor 
 *  @return true if success, false if failed or error
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 int WIMDClient::createSensor(WIMDSensor& sensor){
 	char buff[120];
@@ -63,7 +83,6 @@ int WIMDClient::createSensor(WIMDSensor& sensor){
 *  @param WIMDSensor, buffer 
 *  @return true if success, false if failed or error
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 int WIMDClient::createSensor(WIMDSensor& sensor, char* buff){
 	char buffer[120];
@@ -103,7 +122,6 @@ int WIMDClient::createSensor(WIMDSensor& sensor, char* buff){
 *  @param const char* remoteId , remote id of sensor
 *  @return true or false
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 int WIMDClient::deleteSensor(const char* remoteId){
 	char buff[200];
@@ -127,7 +145,6 @@ int WIMDClient::deleteSensor(const char* remoteId){
 		_client.println(_devKey);
 		_client.println();
 		
-		
 		return waitForResponse();
 	  }
 	  else {
@@ -141,13 +158,10 @@ int WIMDClient::deleteSensor(const char* remoteId){
 *  @param const char* remoteId , remote id of sensor
 *  @return true or false
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 int WIMDClient::updateSensor(WIMDSensor& sensor){
 	char buff[120];
 	int len=sensor.printToBuff(buff);
-	//char resp[]="200";
-
 	
 	if (_client.connect(BASE_URI, 80)) {
 		if(_debug)
@@ -168,7 +182,6 @@ int WIMDClient::updateSensor(WIMDSensor& sensor){
 		_client.println(buff);
 		_client.println();
 		
-		
 		return waitForResponse();
 	  }
 	  else {
@@ -181,7 +194,6 @@ int WIMDClient::updateSensor(WIMDSensor& sensor){
 *  @param const char* , WIMDFeed
 *  @return integer , length of message
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 int WIMDClient::getDataStream(char* buf, WIMDRequest& aRequest)
 {
@@ -217,7 +229,6 @@ int WIMDClient::getDataStream(char* buf, WIMDRequest& aRequest)
 *  @param WIMDRequest
 *  @return boolean, true on success
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 int WIMDClient::put(WIMDRequest& aRequest)
 {
@@ -225,11 +236,8 @@ int WIMDClient::put(WIMDRequest& aRequest)
     char request[BUFF_LEN];
     char* data = request+BUFF_LEN/2;
     memset(request,'\0',sizeof(request));
-    //char resp[]="OK";
-    
 
     int dataLen = getDataStream(data,aRequest);
-    //Serial.println(data);
        
     if (_client.connect(BASE_URI, 80)) {
     	if(_debug)
@@ -253,11 +261,7 @@ int WIMDClient::put(WIMDRequest& aRequest)
 	else
 	{
 		return false;
-
-	}
-		
-		
-		
+	}		
 }
 
 
@@ -267,11 +271,8 @@ int WIMDClient::put(WIMDRequest& aRequest)
 *  @param WIMDRequest
 *  @return boolean, true on success
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
-int WIMDClient::put(WIMDRequest& aRequest, char* buff)
-{
-    
+int WIMDClient::put(WIMDRequest& aRequest, char* buff) {
     char request[BUFF_LEN];
     char* data = request+BUFF_LEN/2;
     memset(request,'\0',sizeof(request));
@@ -303,11 +304,7 @@ int WIMDClient::put(WIMDRequest& aRequest, char* buff)
 	else
 	{
 		return false;
-
 	}
-		
-		
-		
 }
 
 
@@ -316,7 +313,6 @@ int WIMDClient::put(WIMDRequest& aRequest, char* buff)
 *  @param const char*, value to be searched in response to think valid response
 *  @return boolean, true on success
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 bool WIMDClient::waitForResponse()
 {
@@ -362,7 +358,6 @@ bool WIMDClient::waitForResponse()
 *  @param const char*, value to be searched in response to think valid response
 *  @return boolean, true on success
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 bool WIMDClient::waitForResponseWithBuff(char* buff)
 {
@@ -415,9 +410,6 @@ bool WIMDClient::waitForResponseWithBuff(char* buff)
 
             }
 		}
-		
-		
-        
         if(millis() > timerEnd) {
         	_client.stop();
             return false;
@@ -433,7 +425,6 @@ bool WIMDClient::waitForResponseWithBuff(char* buff)
 *  @param null 
 *  @return char*
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 const char* WIMDClient::getCurrentDateTime(){
 	
@@ -500,7 +491,6 @@ const char* WIMDClient::getCurrentDateTime(){
 *  @param char* buff 
 *  @return void
 *  @since 1.0
-*  Author Sagar Devkota<sagarda7@yahoo.com> 
 */
 void WIMDClient::_filter(char* buff){
 	char i,j=0;
