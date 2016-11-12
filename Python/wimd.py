@@ -18,10 +18,17 @@ Where Is My Data API Wrapper
 Please refer to https://wimd.io/api/ for more info.
 '''
 
+'''
 
-__version__ = '2.0.0'
+-- Date --   Version  Description
+2016-11-11    2.1.0   Support for reports API
+
+'''
+
+__version__ = '2.1.0'
 
 import requests
+import json
 from requests       import get, put, post, delete
 from collections    import namedtuple
 from time import time
@@ -486,6 +493,14 @@ class WIMD():
     def readSensors(self, deviceid):
         "List the sensors that belongs to a device"
         return self._get(self._apiNode('device', deviceid, 'sensors'))
+
+    def readReportInfo(self, since, limit):
+        "List available reports"
+        return self._get(self._apiNode('report', 'info', since, str(limit)))
+
+    def readReportBody(self, id):
+        "List available reports"
+        return self._get(self._apiNode('report', 'body', id))
 
     def readVirtualSensors(self, deviceid):
         "List all virtual sensors for this device"
