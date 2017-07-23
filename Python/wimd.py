@@ -21,11 +21,12 @@ Please refer to https://wimd.io/api/ for more info.
 '''
 
 -- Date --   Version  Description
+2017-03-03    2.1.1   Support for GROUP API
 2016-11-11    2.1.0   Support for reports API
 
 '''
 
-__version__ = '2.1.0'
+__version__ = '2.1.1'
 
 import requests
 import json
@@ -68,7 +69,7 @@ STATUS_EXECUTED         = "EXECUTED"
 class WIMD():
     "WIMD.IO Client"
 
-    def __init__(self, url = 'http://wimd.io/v2'):
+    def __init__(self, url = 'http://api.wimd.io/v2'):
         requests.packages.urllib3.disable_warnings()
         self.email       = ''
         self.password    = ''
@@ -219,6 +220,49 @@ class WIMD():
         "Change user's permissions"
         return self._post(self._apiNode('user', 'permissions', userid), dict(permissions=int(permissions)))
 
+    '''
+     Groups
+    '''
+    def readGroups(self):
+        "List the Groups for the current user"
+        return self._get(self._apiNode('groups'))
+
+    def createGroup(self, parent, name, description, latitude, longitude, zoom):
+        "Creates a new Group in the current user context"
+        return self._post(self._apiNode('group'),
+                          dict(
+                              parent=parent,
+                              name=name,
+                              description=description,
+                              latitude=latitude,
+                              longitude=longitude,
+                              zoom=zoom
+                          )
+                          )
+
+    def readGroup(self, groupId):
+        "Read Group"
+        return self._get(self._apiNode('group', groupId))
+
+    def updateGroup(self, groupId, **info):
+        "Update a Group information"
+        return self._put(self._apiNode('group', groupId), info)
+
+    def deleteGroup(self, groupId):
+        "Delete a Group"
+        return self._delete(self._apiNode('group', groupId))
+
+    def linkGroup(self, groupId, userId):
+        "Link a Group to an user"
+        return self._post(self._apiNode('group', groupId, 'link', userId))
+
+    def unlinkGroup(self, groupId, userId):
+        "Unlink a Group from an user"
+        return self._delete(self._apiNode('group', groupId, 'link', userId))
+
+    '''
+    PLACES
+    '''
     def readPlaces(self):
         "List the places for the current user"
         return self._get(self._apiNode('places'))
@@ -449,7 +493,7 @@ class WIMD():
         slist = ""
         if isinstance(sensorlistid, list):
             for id in sensorlistid:
-                if slist <> "":
+                if not slist :
                     slist = slist + ","
                 slist = slist + id
         else:
@@ -622,3 +666,4 @@ def Permission(read=False, create=False, update=False, delete=False):
     "Return a value corresponding to the combined permissions"
     return (PERMISSION_READ   * read  ) + (PERMISSION_CREATE * create) + \
            (PERMISSION_UPDATE * update) + (PERMISSION_DELETE * delete)
+           
